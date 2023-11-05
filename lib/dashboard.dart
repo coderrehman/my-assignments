@@ -47,14 +47,9 @@ class AppDashboard extends StatelessWidget {
               )
             ],
           ),
-        Row(
-          children: [
-            Container(
-              child: ListView.builder(itemBuilder: itemBuilder),
-            )
-          ],
-        )
-        
+          Row(
+            children: [Container()],
+          )
         ],
       ),
     );
