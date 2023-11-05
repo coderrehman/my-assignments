@@ -8,7 +8,6 @@ class AppDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Products product;
     Constants constants = Constants();
     var productList = constants.productlist;
     return Scaffold(
@@ -18,7 +17,7 @@ class AppDashboard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20, top: 15),
+                padding: const EdgeInsets.only(left: 22, top: 23),
                 child: Container(
                   child: Text(
                     "Welcome",
@@ -30,6 +29,9 @@ class AppDashboard extends StatelessWidget {
                 ),
               )
             ],
+          ),
+          SizedBox(
+            height: 30,
           ),
           Column(
             children: [
@@ -44,7 +46,15 @@ class AppDashboard extends StatelessWidget {
                     }),
               )
             ],
-          )
+          ),
+        Row(
+          children: [
+            Container(
+              child: ListView.builder(itemBuilder: itemBuilder),
+            )
+          ],
+        )
+        
         ],
       ),
     );
@@ -53,35 +63,36 @@ class AppDashboard extends StatelessWidget {
 
 getFeaturedProductCard(BuildContext context, productList) {
   return InkWell(
-    onTap: () {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => Productdetailpage()));
-    },
-    child: Card(
-        color: Color.fromARGB(255, 141, 141, 141),
-        elevation: 5.0,
-        shadowColor: Colors.grey.shade300,
-        child: SizedBox(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => Productdetailpage()));
+      },
+      child: Card(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          color: Color.fromARGB(255, 255, 255, 255),
+          elevation: 5.0,
+          shadowColor: Colors.grey.shade300,
+          child: SizedBox(
             height: 200,
-            width: MediaQuery.of(context).size.width * 0.4,
+            width: MediaQuery.of(context).size.width * 0.5,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.network(
-                  "${productList.productimage}",
-                  width: MediaQuery.of(context).size.width * 10,
+                Image(
+                  image: AssetImage("${productList.productimage}"),
+                  width: double.infinity,
                   height: 150,
-                  alignment: Alignment.topCenter,
                 ),
                 Text(
                   "${productList.productname}",
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   "${productList.productprice}",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ],
-            ))),
-  );
+            ),
+          )));
 }
