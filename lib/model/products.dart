@@ -6,6 +6,8 @@ class Products {
   var productprice = "";
   var productreviews = "";
   var productdetails = "";
+  
 
-  Products(this.productimage,this.productname,this.productdescription,this.productrating,this.productprice,this.productreviews);
+  Products(this.productimage, this.productname, this.productdescription,
+      this.productrating, this.productprice, this.productreviews);
 }
