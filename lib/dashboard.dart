@@ -4,9 +4,14 @@ import 'package:fmlms/model/categoriesproductimg.dart';
 import 'package:fmlms/model/products.dart';
 import 'package:fmlms/productdetailpage.dart';
 
-class AppDashboard extends StatelessWidget {
+class AppDashboard extends StatefulWidget {
   const AppDashboard({super.key});
 
+  @override
+  State<AppDashboard> createState() => _AppDashboardState();
+}
+
+class _AppDashboardState extends State<AppDashboard> {
   @override
   Widget build(BuildContext context) {
     Constants constants = Constants();
@@ -48,24 +53,84 @@ class AppDashboard extends StatelessWidget {
             )
           ],
         ),
+        SizedBox(height: 20),
+        Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(16))),
+            child: SizedBox(
+              height: 200,
+              child: Stack(children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(16)),
+                  child: Image(
+                    image: AssetImage("assets/images/cardb1.jpg"),
+                    fit: BoxFit.cover,
+                    width: 367,
+                  ),
+                ),
+                Positioned(
+                    left: 16,
+                    top: 26,
+                    child: Text(
+                      "50% OFF",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 26,
+                          fontWeight: FontWeight.w500),
+                    )),
+                Positioned(
+                    left: 16,
+                    top: 55,
+                    child: Text(
+                      "on everthing today",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 21,
+                          fontWeight: FontWeight.w400),
+                    )),
+                Positioned(
+                  left: 16,
+                  top: 140,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 70,
+                        height: 25,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(200),
+                            color: Colors.white),
+                        child: Center(
+                          child: Text(
+                            "Get Now",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ]),
+            )),
         SizedBox(
-          height: 200,
+          height: 20,
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: SizedBox(
-            height: 300,
-            child: GridView.builder(
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
-                itemCount: catergorydisplayhomepage.length,
-                itemBuilder: (context, index) {
-                  return __productcategories(
-                      context, catergorydisplayhomepage[index]);
-                }),
+        Expanded(
+          child: GridView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: catergorydisplayhomepage.length,
+            shrinkWrap: true,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, mainAxisExtent: 250),
+            itemBuilder: (context, index) {
+              return __productcategories(
+                  context, catergorydisplayhomepage[index]);
+            },
           ),
-        )
+        ),
       ]),
     );
   }
@@ -110,27 +175,50 @@ getFeaturedProductCard(BuildContext context, productList) {
 }
 
 __productcategories(BuildContext context, catergorydisplayhomepage) {
-  return SizedBox(
-    height: MediaQuery.of(context).size.width * 0.7,
-    width: MediaQuery.of(context).size.width * 0.4,
-    child: Card(
-      color: Color.fromARGB(255, 255, 255, 255),
-      elevation: 5.0,
-      shadowColor: const Color.fromARGB(255, 87, 87, 87),
+  return Padding(
+    padding: const EdgeInsets.all(2),
+    child: Container(
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 255, 255, 255),
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromRGBO(231, 229, 229, 1),
+            blurRadius: 8.0,
+            spreadRadius: 1.0,
+            offset: Offset(
+              1.0,
+              1.0,
+            ),
+          )
+        ],
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      width: MediaQuery.of(context).size.width * 0.4,
       child: Column(
         children: [
           SizedBox(
-            child: ListView(
-              children: [
-                Image(
-                  image: AssetImage("${catergorydisplayhomepage.cpimg}"),
-                  height: 170,
-                  fit: BoxFit.cover,
-                ),
-              ],
+            height: 200,
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(16), topRight: Radius.circular(16)),
+              child: Image(
+                image: AssetImage(catergorydisplayhomepage.cpimg),
+                width: double.infinity,
+                fit: BoxFit.fill,
+              ),
             ),
           ),
-          Text("${catergorydisplayhomepage.cpname}")
+          SizedBox(
+            height: 13,
+          ),
+          Center(
+              child: Text(
+            "${catergorydisplayhomepage.cpname}",
+            style: TextStyle(
+                color: const Color.fromARGB(255, 92, 92, 92),
+                fontSize: 15,
+                fontWeight: FontWeight.w600),
+          ))
         ],
       ),
     ),

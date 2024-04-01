@@ -20,10 +20,12 @@ class OnBoard extends StatelessWidget {
               Container(
                 child: Positioned(
                   top: 640,
-                  left: 40,
-                  child: SizedBox(
+                  left: 90,
+                  child: Container(
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(19)),
                     height: 35,
-                    width: 300,
+                    width: 200,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.pushReplacement(
@@ -35,10 +37,11 @@ class OnBoard extends StatelessWidget {
                           child: Text(
                         "Login",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                            color: Colors.white, fontWeight: FontWeight.w700),
                       )),
                       style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(Colors.white),
+                        backgroundColor: MaterialStatePropertyAll(
+                            Color.fromRGBO(185, 217, 235, 1)),
                       ),
                     ),
                   ),
@@ -47,10 +50,12 @@ class OnBoard extends StatelessWidget {
               Container(
                 child: Positioned(
                   top: 688,
-                  left: 40,
-                  child: SizedBox(
+                  left: 90,
+                  child: Container(
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(19)),
                     height: 35,
-                    width: 300,
+                    width: 200,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.pushReplacement(
@@ -62,15 +67,17 @@ class OnBoard extends StatelessWidget {
                           child: Text(
                         "Signup",
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                            color: Colors.white, fontWeight: FontWeight.w700),
                       )),
                       style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(Colors.white),
+                        backgroundColor: MaterialStatePropertyAll(
+                          Color.fromRGBO(185, 217, 235, 1),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),

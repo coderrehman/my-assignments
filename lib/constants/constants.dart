@@ -1,4 +1,5 @@
 import 'package:fmlms/model/categoriesproductimg.dart';
+import 'package:fmlms/model/productdescriptionpage.dart';
 import 'package:fmlms/model/products.dart';
 
 class Constants {
@@ -35,32 +36,29 @@ class Constants {
 
   var catergorydisplayhomepage = [
     CategoryProductdisplayhomepage(
-        "assets/images/imagesforcategorydisplayonhomepage3.jpg",
-        "Mens shirts",
-      ),
+      "assets/images/imagesforcategorydisplayonhomepage2.png",
+      "Mens shirts",
+    ),
     CategoryProductdisplayhomepage(
-        "assets/images/imagesforcategorydisplayonhomepage7.jpg",
-        "Womens dresses",
-        ),
+      "assets/images/imagesforcategorydisplayonhomepage24.png",
+      "Womens dresses",
+    ),
     CategoryProductdisplayhomepage(
-        "assets/images/imagesforcategorydisplayonhomepage16.jpg",
-        "Home appliances",
-       ),
+      "assets/images/imagesforcategorydisplayonhomepage13.jpg",
+      "Mens shoes",
+    ),
     CategoryProductdisplayhomepage(
-        "assets/images/imagesforcategorydisplayonhomepage13.jpg",
-        "Mens shoes",
-       ),
+      "assets/images/imagesforcategorydisplayonhomepage12.jpg",
+      "Womens shoes",
+    ),
     CategoryProductdisplayhomepage(
-        "assets/images/imagesforcategorydisplayonhomepage12.jpg",
-        "Womens shoes",
-       ),
+      "assets/images/imagesforcategorydisplayonhomepage21.jpg",
+      "Wrist watch",
+    ),
     CategoryProductdisplayhomepage(
-        "assets/images/imagesforcategorydisplayonhomepage10.jpg",
-        "Wrist watch",
-       ),
-    CategoryProductdisplayhomepage(
-        "assets/images/imagesforcategorydisplayonhomepage18.jpg",
-        "Smart phones",
-       ),
+      "assets/images/imagesforcategorydisplayonhomepage22.jpg",
+      "Smart phones",
+    ),
   ];
 }
+
